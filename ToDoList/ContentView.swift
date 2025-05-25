@@ -17,7 +17,7 @@ struct ContentView: View {
             VStack{
                 
                 HStack{
-                    Text("Income")
+                    Text("To Do List")
                         .font(.system(size: 30, weight: .bold))
                     Spacer()
                     VStack{
