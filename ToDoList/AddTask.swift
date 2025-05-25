@@ -11,10 +11,8 @@ struct AddTask: View {
     @State var taskName: String = ""
     @State var priority : Priority = .high
     @State var showInvalidTitleErorrAlert = false
-    @State var alertTitle: String?
-    
-    @State var alertMessage: String?
-    @Binding var tasks: [Task]
+
+    @Binding var tasks:  [Task]
     
     @Environment(\.dismiss) var dismiss
     
@@ -58,11 +56,9 @@ struct AddTask: View {
             .alert("Invalid Title",isPresented: $showInvalidTitleErorrAlert) {
                 Button(action: {}, label:{
                     Text("OK")
-                })
-                    
+                }) 
             
             }
-            
            
         }
      

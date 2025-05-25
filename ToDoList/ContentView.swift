@@ -13,6 +13,7 @@ struct ContentView: View {
     @State var taskViewPresent = false
     var body: some View {
         NavigationStack{
+            
             VStack{
                 
                 HStack{
@@ -36,11 +37,11 @@ struct ContentView: View {
                         })
                     }
                 }
-                .padding()
+                .padding(10)
             }
             VStack{
                 List{
-                    ForEach(tasks){task in
+                    ForEach($tasks){$task in
                         Button(action: {
                             if let taskIndex = tasks.firstIndex(where: {
                                 $0.id == task.id})
@@ -49,16 +50,25 @@ struct ContentView: View {
                                 
                             }
                         }, label: {
-                            
-                            
-                            
+                            HStack {
+                                Text(task.title)
+                                    .font(.system(size: 25, weight: .bold))
+                                    .foregroundStyle(Color.black.opacity(task.iscompleted ? 0.5 : 1))
+                           .strikethrough(task.iscompleted)
+                                Spacer()
+                                Text(task.priority.capitalized)
+                                    .font(.system(size: 20, weight: .regular))
+                                    .foregroundStyle(.red)
+                            }
                         })
                     }
+                    .listRowBackground(Color.gray.opacity(0.2))
                 }
+             
             }
-            Spacer()
-       
-        .padding()
+         
+            .scrollContentBackground(.hidden)
+         
         }
 
     }
