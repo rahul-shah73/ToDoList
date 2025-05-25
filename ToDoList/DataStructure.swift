@@ -6,3 +6,7 @@
 //
 
 import Foundation
+struct DataStructure {
+    var id = UUID ()
+    var title: String
+}

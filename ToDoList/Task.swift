@@ -6,3 +6,9 @@
 //
 
 import Foundation
+struct Task: Identifiable, Hashable{
+    let id = UUID()
+    let title : String
+    let priority : String
+    let iscompleted : Bool
+}
