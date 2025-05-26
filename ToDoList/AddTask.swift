@@ -15,12 +15,30 @@ struct AddTask: View {
     @Binding var tasks:  [Task]
     
     @Environment(\.dismiss) var dismiss
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     
     
     
     var body: some View {
       
         VStack(alignment: .leading, spacing: 20){
+            HStack{
+                if horizontalSizeClass == .compact && verticalSizeClass == .compact || horizontalSizeClass == .regular && verticalSizeClass == .compact {
+                    Spacer()
+                    Button(action: {
+                        dismiss()}, label: {
+                            Image(systemName: "xmark")
+                                .font(.system(size: 25, weight : .bold))
+                                .foregroundStyle(.white    )
+                                .background(.black)
+                               .clipShape(RoundedRectangle(cornerRadius: 5))
+                               
+                    })
+                }
+               
+        }
             Text("Enter Your Task Here")
             TextField("Enter Your Task", text: $taskName)
                 .padding()
