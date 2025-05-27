@@ -19,6 +19,7 @@ struct ContentView: View {
                 HStack{
                     Text("To Do List")
                         .font(.system(size: 30, weight: .bold))
+                        .foregroundStyle(.red)
                     Spacer()
                     VStack{
                         Button(action: {
